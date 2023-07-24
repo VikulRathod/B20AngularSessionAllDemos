@@ -1,0 +1,61 @@
+<h1>Pipe Demo</h1>
+
+<h2>Custom If Structural Directive</h2>
+<button (click)="update()">Click Me</button>
+<div *vhaashCustomIf="isVisible">
+    This is displyed based on custom if directive
+</div>
+
+<ng-template #show>
+    Displayed due to custom if directive true
+</ng-template>
+<ng-template #hide>
+    Displayed due to custom if directive false
+</ng-template>
+<div *vhaashCustomIf="isVisible then show;else hide">
+</div>
+
+<!-- <pre>
+{{students | json}}
+</pre> -->
+
+<h2>All Students</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Name Reverse</th>
+            <th>City</th>
+            <th>Date Of Birth</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of students">
+            <td>{{s.name}}</td>
+            <td>{{s.name | reverse}}</td>
+            <td>{{s.city | titlecase}}</td>
+            <td>{{s.DOB | date}}</td>
+            <td>{{s.DOB | age : 'year' : 'word'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<p>Name : {{name}} Name in upper : {{name | uppercase}}</p>
+<p>City : {{city}} City in lower : {{city | lowercase}}</p>
+<p>Address : {{address}}</p>
+<p>Address in title case : {{address | titlecase}}</p>
+<p>Salary : {{salary}} Salary in decimal : {{salary | currency : 'INR' : 'code'}}</p>
+<p>Date of Birth : {{dateOfBirth}} Using date pipe : {{dateOfBirth | date}}</p>
+<p>Using date & uppercase pipe : {{dateOfBirth | date | uppercase}}</p>
+<p> Using date pipe : {{dateOfBirth | date : 'dd/MM/yyyy HH:mm'}} </p>
+
+<p>Current Date Time : {{currentDateTime}}</p>
+<p>Current Date Time : {{currentDateTime | date}}</p>
+<p>Current Date Time : {{currentDateTime | date : 'dd/MM/yyyy HH:mm'}}</p>
+<p>Current Date Time : {{currentDateTime | date : 'dd/MMM/yyyy HH:mm'}}</p>
+
+<p>Salary : {{salary}}</p>
+<p>Salary : {{salary | number : '5.2-3'}}</p>

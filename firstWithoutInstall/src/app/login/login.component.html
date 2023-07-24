@@ -1,0 +1,89 @@
+<!-- <h1 *vhaashCustomIf={{isVisible}}>My Custom If Directive</h1> -->
+<button (click)="changeVisibility()">Change Visibility</button>
+<div *vhaashCustomIf="showCustomIf">
+    <h1>My Custom If Directive</h1>
+</div>
+
+<h1 vhaashMyDir>My Custom Directive</h1>
+
+<div class="vhaashMyDir">Div Content</div>
+<h2>Directives</h2>
+
+<h3>ngModel</h3>
+<input type="text" [(ngModel)]="name" />
+<p>{{name}}</p>
+
+<h3>ngStyle</h3>
+<!-- <p style="color:red">First Paragraph</p> -->
+<!-- <p [style.color]="fColor">First Paragraph</p> -->
+<!-- <p [style.color]="fColor"
+[style.background-color]="bColor">First Paragraph</p> -->
+<input type="text" [(ngModel)]="fColor" />
+<p [ngStyle]="{color: fColor,backgroundColor:bColor, border:borderColor}">First Paragraph</p>
+
+<h3>ngClass</h3>
+<!-- <p class="myClass1 myClass2">Second Paragraph</p> -->
+<!-- <p class="{{class1}} {{class2}}">Second Paragraph</p> -->
+<p [ngClass]="{myClass1: applyClass1, myClass2:applyClass2}">Second Paragraph</p>
+
+<h3>ngIf</h3>
+<input type="text" [(ngModel)]="num" />
+
+<p *ngIf="num == 10">TEN</p>
+<p *ngIf="num != 10">NOT TEN</p>
+
+<h3>IfElse Syntax</h3>
+
+<ng-template #ifTrue>TEN</ng-template>
+<ng-template #ifNotTrue>NOT TEN</ng-template>
+
+<p *ngIf="num == 10 then ifTrue;else ifNotTrue"></p>
+
+<h3>ngSwitch</h3>
+<div [ngSwitch]="num">
+    <div *ngSwitchCase="'10'">TEN</div>
+    <div *ngSwitchCase="'20'">TWENTY</div>
+    <div *ngSwitchCase="'30'">THIRTy</div>
+    <div *ngSwitchDefault>NOT 10 20 or 30</div>
+</div>
+
+<h3>ngFor</h3>
+
+<ul>
+    <li *ngFor="let item of names">{{item}}</li>
+</ul>
+
+<h3>All Students</h3>
+<ul>
+    <li *ngFor="let student of students">{{student.name}} : {{student.city}}
+        <ul>
+            <li *ngFor="let subject of student.subjects">{{subject}}</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Table Format</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Subjects</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.name}}</td>
+            <td>{{student.city}}</td>
+            <td>{{student.subjects}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Select Color</h3>
+
+<select [(ngModel)]="selectedColor">
+    <option [value]="''">-- Select --</option>
+    <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+</select>
+<p [style.color]="selectedColor">You have selected {{selectedColor}} color</p>

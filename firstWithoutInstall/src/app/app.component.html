@@ -1,0 +1,44 @@
+<app-index></app-index>
+
+<div *vhaashCustomIf="isShowCustomIf">
+    <h1>My Custom If Directive Content</h1>
+</div>
+
+<h1>VHaaSh Technologies</h1>
+<p>Software Company</p>
+
+<h3>Interpolation</h3>
+<p>{{name}}</p>
+<p>{{10 + 10}}</p>
+<p>Addition : {{num1 + num2}}</p>
+<p>Substraction {{num1 - num2}}</p>
+<input type="text" value="{{name}}" />
+<a href="{{site}}">Click here</a>
+
+<h3>Property Binding</h3>
+<p [innerText]="name"></p>
+<br>
+<input type="text" [value]="empname"
+readonly="{{isReadOnly}}">
+<br>
+<input type="text" [value]="empname"
+[readOnly]="isReadOnly">
+
+<!-- <p>{{num1+=10}}</p> -->
+
+<h3>Event Binding</h3>
+<input type="text" [value]="sname">
+<button (click)="details()">Click Me</button>
+<br><br>
+<input type="text" #username [value]="sname">
+<button (click)="welcome(username.value)">Greet</button>
+
+<br><br>
+<input type="text" [value]="sname"
+(focus)="txtFocus()" (blur)="txtBlur()" />
+
+<br>
+<br>
+<h3>Two way data binding</h3>
+<input type="text" [(ngModel)]="name"/>
+<p>{{name}}</p>

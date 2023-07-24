@@ -1,0 +1,15 @@
+<h2 style='color:red;'>Home Component Content</h2>
+
+<!-- <app-login></app-login> -->
+<h3>Employee Details</h3>
+<p>Name: {{employee.name}}</p>
+<p>Gender: {{employee.gender}}</p>
+<p>City: {{employee.city}}</p>
+<br><br>
+<input type="text" #user/><br>
+<input type="text" #user1/><br>
+<button (click)="details(user.value, user1.value)">Click Me</button>
+
+<br><br>
+<input [type]="textmode" [value]="password" #pwd id="txtPassword"/>
+<input type="checkbox" (change)="changeMode(pwd.type, pwd)">
