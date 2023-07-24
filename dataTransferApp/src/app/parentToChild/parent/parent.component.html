@@ -1,0 +1,8 @@
+<div>
+    <h2>Parent Component</h2>
+    <input type="text" [(ngModel)]="parentData">
+    <p>{{parentData}}</p>
+    <p>Data from Child Component : Name : <b>{{childData}}</b> Age : <b>{{childAge}}</b></p>
+    <app-child [dataFromParent]="parentData" [parentDetailsData]="parentDetails"
+    (sendData)="retrieveData($event)"></app-child>
+</div>

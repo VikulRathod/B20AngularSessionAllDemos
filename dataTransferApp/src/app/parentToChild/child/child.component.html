@@ -1,0 +1,10 @@
+<div>
+    <h2>Child Component</h2>
+    <p>{{dataFromParent}}</p>
+    <p>Parent Details : city {{parentDetailsData.city}} mobile {{parentDetailsData.mobile}}</p>
+    <h3>{{name}}</h3>
+    <button (click)="getData()">Send Data To Parent</button>
+    <input type="text" [(ngModel)]="name" (keyup)="getData()"/>
+    <input type="text" [(ngModel)]="age" (keyup)="getAge()"/>
+
+</div>
