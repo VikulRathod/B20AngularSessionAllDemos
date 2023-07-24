@@ -1,0 +1,35 @@
+<!-- <app-login></app-login> -->
+<h3>ngModel</h3>
+<input type="text" [(ngModel)]="name" />
+<p>{{name}}</p>
+
+<h3>ngStyle</h3>
+<p style="color: red;">This is red paragraph</p>
+<p [style.color]="pcolor" [style.backgroundColor]="bcolor">This is green paragraph</p>
+<p [ngStyle]="{color:pcolor,backgroundColor:bcolor}">This is red & green paragraph</p>
+
+<h3>ngClass</h3>
+<p class="para">This is static class paragraph</p>
+<p [className]="clsName">This is static class paragraph</p>
+<p ngClass="{{clsName}} {{fClsName}}">This is dynamic class paragraph</p>
+<p [ngClass]="{para: true, fClsName:true}">This is dynamic class paragraph</p>
+
+<h3>ngIf</h3>
+<p *ngIf="num == 10">TEN</p>
+<p *ngIf="num != 10">NOT TEN</p>
+
+<ng-template #ifTrue>ITS TEN</ng-template>
+<ng-template #ifNotTrue>ITS NOT TEN</ng-template>
+
+<p *ngIf="num == 10 then ifTrue;else ifNotTrue"></p>
+
+<h3>ngSwitch</h3>
+<div [ngSwitch]="num">
+    <div *ngSwitchCase="'10'">TEN</div>
+    <div *ngSwitchDefault>NOT TEN</div>
+</div>
+
+<h3>ngFor</h3>
+<ul>
+    <li *ngFor="let item of names">{{item}}</li>
+</ul>

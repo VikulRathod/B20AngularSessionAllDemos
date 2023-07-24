@@ -1,0 +1,46 @@
+<h2 appMyCustom>Directive Demos</h2>
+
+<h2 *appMyCustomStructural="false">My Custom Structural Directive</h2>
+
+<h3>ngModel</h3>
+<input type="text" [(ngModel)]="name" />
+<p>Input: {{name}}</p>
+
+<h3>ngStyle</h3>
+<p style="color:red">HTML Style Paragraph</p>
+<p [ngStyle]="{color:color, backgroundColor:bColor}">ng Style Paragraph</p>
+
+<h3>ngClass</h3>
+<p class="class1">HTML Class</p>
+<p [ngClass]="{class1: enableClass}">ng Class Paragraph</p>
+
+<h3>ngIf</h3>
+<p *ngIf="color == 'red'">This is a color == 'red' conditional paragraph</p>
+<p *ngIf="color != 'red'">This is a color != 'red' conditional paragraph</p>
+
+<ng-template #ngred>red color</ng-template>
+<ng-template #ngnotred>not red color</ng-template>
+
+Change color: <input type="text" [(ngModel)]="color">
+<p *ngIf="color=='red' then ngred;else ngnotred"></p>
+
+<h3>ngSwitch</h3>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">red color</div>
+    <div *ngSwitchCase="'green'">green color</div>
+    <div *ngSwitchCase="'blue'">blue color</div>
+    <div *ngSwitchDefault>non rgb color</div>
+</div>
+<br><br>
+<button (click)="toggleDiv()">Click Me</button>
+<div *ngIf="isVisible == true" style="background-color: gray;">
+<h3>ngFor</h3>
+<select [(ngModel)]="color">
+    <option [value]="''">--Select Color --</option>
+    <option *ngFor="let c of colors" value={{c}}>{{c}}</option>
+</select>
+<p>Selected color: {{color}}</p>
+</div>
+
+<h3>Bootstrap</h3>
+<button class="btn btn-primary">Click Me</button>
