@@ -1,0 +1,9 @@
+<div style="background-color: gray;padding: 20px;">
+    <ng-content select=".header"></ng-content>
+    <ul>
+        <li *ngFor="let prod of products">
+            <p>id: {{prod.id}} name : {{prod.name}} price : {{prod.price}}</p>
+        </li>
+    </ul>
+    <ng-content select=".footer"></ng-content>
+</div>
