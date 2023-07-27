@@ -1,0 +1,29 @@
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Username</label>
+        <input type="text" class="form-control w-25" placeholder="Enter username" name="username" ngModel
+            #username="ngModel" required minlength="2" maxlength="10" />
+        <span [style.color]="'red'" *ngIf="username.touched && !username.dirty && username.invalid">username is
+            required</span>
+        <span [style.color]="'red'" *ngIf="username.touched && username.dirty && username.invalid">invalid
+            username</span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">
+            Password</label>
+        <input type="password" class="form-control w-25" placeholder="Enter password" name="password" ngModel
+            #password="ngModel" required 
+            [ngClass]="{error: password.touched && password.invalid}"/>
+        <span [style.color]="'red'" *ngIf="password.touched && password.invalid">password is required</span>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Log In"
+            [disabled]="loginForm.untouched || loginForm.invalid" />
+    </div>
+</form>
+
+<p>{{loginForm.value| json}}</p>
+<p>valid: {{loginForm.valid}}</p>
+<p>untouched: {{loginForm.untouched}}</p>
+<p>touched: {{loginForm.touched}}</p>
+<p>submitted: {{loginForm.submitted}}</p>

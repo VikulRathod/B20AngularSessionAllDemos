@@ -1,0 +1,10 @@
+<h2>Basic Form without Angular Form Convention</h2>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" #name />
+      <br><br>
+      <label for="password">Password</label>
+      <input type="password" #password />
+      <br><br>
+      <input type="submit" value="Log In" (click)="login(name.value, password.value)" />
+    </div>
