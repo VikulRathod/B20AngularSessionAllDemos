@@ -1,0 +1,76 @@
+<form [formGroup]="signinForm" (ngSubmit)="signin()">
+    <div class="mb-3 col-4">
+        <label for="" class="form-label">
+            Username</label>
+        <input type="text" 
+        class="form-control"
+        placeholder="Enter username" 
+         formControlName="username"  />
+         <span [style.color]="'red'"
+         *ngIf="username && username.touched && username.invalid">Username is required</span>
+    </div>
+    <div class="mb-3 col-4">
+        <label for="" class="form-label">
+            Password</label>
+        <input type="text" 
+        class="form-control" 
+        placeholder="Enter password"
+        formControlName="password" />
+        <span [style.color]="'red'"
+        *ngIf="password && password.touched && password.invalid">Password is required</span>
+    </div>
+    <div class="mb-3 col-4">
+        <label for="" class="form-label">
+            Email</label>
+        <input type="email" 
+        class="form-control" 
+        placeholder="Enter email"
+        formControlName="email" />
+        <span [style.color]="'red'"
+        *ngIf="email && email.touched && email.invalid">Invalid Email</span>
+    </div>
+    <div class="mb-3 col-4">
+        <label for="" class="form-label">
+            Confirm Email</label>
+        <input type="email" 
+        class="form-control" 
+        placeholder="Enter email again"
+        formControlName="confirmemail" />
+        <span [style.color]="'red'"
+        *ngIf="confirmemail && confirmemail.touched && confirmemail.invalid">Invalid Confim Email</span>
+        <span [style.color]="'red'"
+        *ngIf="confirmemail && confirmemail.touched && signinForm.hasError('emailsNotMatch')">Email and Confirm Email should be same</span>
+    </div>
+    <div formGroupName="address">
+        <div class="mb-3 col-4">
+            <label for="" class="form-label">
+                Village</label>
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter password"
+            formControlName="village"/>
+        </div>
+        <div class="mb-3 col-4">
+            <label for="" class="form-label">
+                Taluka</label>
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter password"
+            formControlName="taluka"/>
+        </div>
+        <div class="mb-3 col-4">
+            <label for="" class="form-label">
+                District</label>
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter password"
+            formControlName="district" />
+        </div>
+    </div>
+    <div class="mb-3 col-4">
+        <input type="submit" 
+        class="form-control btn btn-info" 
+        value="Sign In" 
+        [disabled]="signinForm.invalid"/>
+    </div>
+</form>

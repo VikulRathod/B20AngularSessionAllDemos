@@ -5,20 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './tforms/login/login.component';
 import { BasicFormComponent } from './tforms/basic-form/basic-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './tforms/register/register.component';
+import { SigninComponent } from './rforms/signin/signin.component';
+import { SignupComponent } from './rforms/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BasicFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

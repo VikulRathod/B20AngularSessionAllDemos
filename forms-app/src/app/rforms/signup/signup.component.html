@@ -1,0 +1,15 @@
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <h2>Sign up Here</h2>
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" placeholder="Enter username" formControlName="username">
+        <span [style.color]="'red'" *ngIf="signupForm.controls.username.touched && 
+        signupForm.controls.username.errors.required">Username is required</span>
+        <span [style.color]="'red'" *ngIf="signupForm.controls.username.touched && 
+        signupForm.controls.username.errors.minLength">Username should be 5 to 10 characters long</span>
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" class="form-control btn btn-info" value="Sign Up">
+    </div>
+</form>
