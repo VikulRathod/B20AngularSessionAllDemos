@@ -3,10 +3,46 @@
     <div class="mb-3">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" placeholder="Enter username" formControlName="username">
-        <span [style.color]="'red'" *ngIf="signupForm.controls.username.touched && 
-        signupForm.controls.username.errors.required">Username is required</span>
-        <span [style.color]="'red'" *ngIf="signupForm.controls.username.touched && 
-        signupForm.controls.username.errors.minLength">Username should be 5 to 10 characters long</span>
+        <!-- <span style="color:red;" *ngIf="signupForm.controls.username.touched
+         && signupForm.controls.username.errors.required.invalid">Username is required</span> -->
+
+        <span style="color:red;" *ngIf="signupForm.get('username').touched && 
+         signupForm.get('username').errors?.required">Username is required</span>
+
+        <!-- <span>{{signupForm.get('username').errors | json}}</span> -->
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" placeholder="Enter email" formControlName="email" 
+       (blur)="autoEmailUpper()" />
+        <input type="text" [style.color]="'red'" [value]="emailInUpper" />
+
+        <span style="color:red;" *ngIf="signupForm.get('email').touched && 
+         signupForm.get('email').errors?.required">Email is required</span>
+        <span style="color:red;" *ngIf="(signupForm.get('email').touched || 
+         signupForm.get('email').dirty) &&
+         signupForm.get('email').errors?.emailPattern">My Custom Validator: Invalid Email</span>
+
+        <!-- <p>touched: {{signupForm.get('email').touched}}</p>
+         <p>dirty: {{signupForm.get('email').dirty}}</p>
+         <p>emailPattern: {{signupForm.get('email').errors?.emailPattern}}</p> -->
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Confirm Email</label>
+        <input type="text" class="form-control" placeholder="Enter email again" formControlName="confirmemail">
+
+        <span style="color:red;" *ngIf="signupForm.get('confirmemail').touched && 
+         signupForm.get('confirmemail').errors?.required">Confirm Email is required</span>
+        <br>
+        <span style="color:red;" *ngIf="(signupForm.get('confirmemail').touched || 
+         signupForm.get('confirmemail').dirty) &&
+         signupForm.get('confirmemail').errors?.emailPattern">My Custom Validator: Invalid Confim Email</span>
+        <br>
+        <span style="color:red;" *ngIf="(signupForm.get('confirmemail').touched || 
+         signupForm.get('confirmemail').dirty) &&
+         signupForm.get('confirmemail').errors?.comparefailed">My Custom Validator: Email and Confim Email should be
+            same</span>
     </div>
 
     <div class="mb-3">
