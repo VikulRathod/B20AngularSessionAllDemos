@@ -6,15 +6,15 @@
         <!-- <span style="color:red;" *ngIf="signupForm.controls.username.touched
          && signupForm.controls.username.errors.required.invalid">Username is required</span> -->
 
-        <span style="color:red;" *ngIf="signupForm.get('username').touched && 
-         signupForm.get('username').errors?.required">Username is required</span>
+        <span style="color:red;" *ngIf="(signupForm.get('username').touched || isFormSubmitted) && 
+         signupForm.get('username').errors?.required">Please enter username</span>
 
         <!-- <span>{{signupForm.get('username').errors | json}}</span> -->
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="text" class="form-control" placeholder="Enter email" formControlName="email" 
-       (blur)="autoEmailUpper()" />
+        <input type="text" class="form-control" placeholder="Enter email" formControlName="email"
+            (blur)="autoEmailUpper()" />
         <input type="text" [style.color]="'red'" [value]="emailInUpper" />
 
         <span style="color:red;" *ngIf="signupForm.get('email').touched && 
@@ -48,4 +48,5 @@
     <div class="mb-3">
         <input type="submit" class="form-control btn btn-info" value="Sign Up">
     </div>
+    <h2>is form submitted : {{isFormSubmitted}}</h2>
 </form>

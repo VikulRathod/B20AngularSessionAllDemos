@@ -1,0 +1,8 @@
+<div>
+    <ng-content></ng-content>
+    <h2 #head>First Child Component</h2>
+    <!-- <p [style.color]="childColor">{{name}}</p> -->
+    <p [style]="{'color' : childColor}">{{name}}</p>
+    <label>Product Name : {{parentproduct.name}}</label> <br>
+    <label>Product Price : {{parentproduct.price}}</label>
+</div>

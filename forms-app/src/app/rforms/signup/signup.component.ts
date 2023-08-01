@@ -7,12 +7,14 @@ import { AllCustomValidators } from 'src/app/helpers/all-custom-validators';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
 
   signupForm: FormGroup | any;
   emailInUpper: string | any = '';
 
-  constructor(private formBuilder: FormBuilder) { 
+  isFormSubmitted: boolean = false;
+
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -20,17 +22,20 @@ export class SignupComponent implements OnInit{
       username: ['', [Validators.required]],
       // email: ['', [Validators.required, Validators.pattern('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/')]]
       email: ['', [Validators.required, AllCustomValidators.emailPattern()]],
-      confirmemail: ['', [Validators.required, AllCustomValidators.emailPattern(), 
-        AllCustomValidators.compareControl('email')]]
+      confirmemail: ['', [Validators.required, AllCustomValidators.emailPattern(),
+      AllCustomValidators.compareControl('email')]]
     });
   }
 
   signup() {
+    this.isFormSubmitted = true;
     console.log(this.signupForm.value);
+    // console.log(this.signupForm.get('username'));
+    // console.log(this.signupForm.get('username').errors);
   }
 
-  autoEmailUpper(){
-    const e : string = this.signupForm.get('email').value;
+  autoEmailUpper() {
+    const e: string = this.signupForm.get('email').value;
     this.emailInUpper = e?.toUpperCase();
   }
 }
