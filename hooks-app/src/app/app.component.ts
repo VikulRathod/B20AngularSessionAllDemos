@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from './product';
 
 @Component({
@@ -6,7 +6,7 @@ import { Product } from './product';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnChanges {
   title = 'hooks-app';
   colorName: string = 'red';
 
@@ -15,5 +15,13 @@ export class AppComponent {
   constructor() {
     this.product.name = 'shirt';
     this.product.price = 299;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('parent component ngOnChanges called..');
+  }
+
+  ngOnInit(){
+    console.log('parent component ngOnChanges called..');
   }
 }

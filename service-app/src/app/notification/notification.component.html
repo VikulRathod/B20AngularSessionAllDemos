@@ -1,0 +1,30 @@
+<h2>Send Email</h2>
+<form #emailForm="ngForm" (ngSubmit)="sendEmail(emailForm)">
+    <div class="col">
+        <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input type="text" name="email" class="form-control" ngModel placeholder="Enter Email">
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-3">
+            <label for="" class="form-label">Email Subject</label>
+            <input type="text" name="subject" class="form-control" ngModel placeholder="Enter Email Subject">
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-3">
+            <label for="" class="form-label">Email Body</label>
+            <input type="text" name="body" class="form-control" ngModel placeholder="Enter Email Body">
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-3">
+            <input type="submit" class="form-control btn btn-primary" value="Send Email" />
+        </div>
+    </div>
+</form>
+
+<div class="alert alert-primary" role="alert" *ngIf="emailForm.submitted">
+    Status: <strong>{{message}}</strong>
+</div>

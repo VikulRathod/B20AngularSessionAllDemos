@@ -3,21 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirstChildComponent } from './first-child/first-child.component';
+import { FlipkartComponent } from './flipkart/flipkart.component';
+import { AmazonComponent } from './amazon/amazon.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NotificationComponent } from './notification/notification.component';
 import { FormsModule } from '@angular/forms';
-import { SecondChildComponent } from './second-child/second-child.component';
-import { ThirdChildComponent } from './third-child/third-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstChildComponent,
-    SecondChildComponent,
-    ThirdChildComponent
+    FlipkartComponent,
+    AmazonComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
