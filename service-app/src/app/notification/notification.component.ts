@@ -11,12 +11,17 @@ import { NotificationService } from '../services/notification.service';
 export class NotificationComponent {
 
   emailBody: EmailRequestBody | any;
-  message: string | any = 'Email sending not started..';
+  //  message: string | any = 'Email sending not started..';
+  message: string | any;
+  submitButton: string = 'Send Email';
+  inProgress: boolean = false;
 
   constructor(private notification: NotificationService) { }
 
   sendEmail(emailInfo: NgForm) {
     // console.log(emailInfo.value);
+    this.submitButton = 'Sending Email..';
+    this.inProgress = true;
     this.emailBody = new EmailRequestBody();
     this.emailBody.ToEmail = emailInfo.value.email;
     this.emailBody.EmailSubject = emailInfo.value.subject;
@@ -24,8 +29,9 @@ export class NotificationComponent {
     this.emailBody.IsBodyHtml = true;
 
     this.notification.sendEmail(this.emailBody).subscribe(data => {
-      console.log(data);
-      //       this.message = data;
+      this.message = data;
+      this.submitButton = 'Send Email';
+      this.inProgress = false;
     });
   }
 }

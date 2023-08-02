@@ -20,11 +20,11 @@
     </div>
     <div class="col">
         <div class="mb-3">
-            <input type="submit" class="form-control btn btn-primary" value="Send Email" />
+            <input type="submit" class="form-control btn btn-primary" [value]="submitButton" [disabled]="inProgress" />
         </div>
     </div>
 </form>
 
-<div class="alert alert-primary" role="alert" *ngIf="emailForm.submitted">
+<div class="alert alert-primary" role="alert" *ngIf="emailForm.submitted && message != undefined">
     Status: <strong>{{message}}</strong>
 </div>
