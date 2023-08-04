@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { Post } from '../post';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ constructor(private http : HttpClient){}
     //   { userId: 5, id: 5, title: 'post 5', body: 'post 5 body' }
     // ];
 
-    return this.http.get('https://jsonplaceholder.typicode.com/posts')
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
     .pipe(catchError(error => {
       return throwError(() => new Error(error.message));
     }));
