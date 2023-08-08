@@ -1,0 +1,36 @@
+<p>HI</p><br><br>
+
+<div style="margin-left: 50px;">
+  <div matBadge="12" matBadgeOverlap="false" 
+  matBadgeSize="small" 
+  matBadgePosition="above after"
+  matBadgeColor="warn"
+    class="demo-section ml-5">Messages</div>
+</div>
+
+<div class="container">
+
+  <h2>Bootstrap Example</h2>
+  <div class="col-4 alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <h2>ng Bootstrap Example</h2>
+  <p>
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+  </p>
+
+  <div>
+    <app-model-ex></app-model-ex>
+
+    <p>Default pagination:</p>
+    <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+  </div>
+
+  <h2>Angular Material Example</h2>
+  <mat-slide-toggle>Is Indian</mat-slide-toggle>
+  <app-table-view></app-table-view>
+</div>
